@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<!--
+    Copyright (c) 2012-2016 Adobe Systems Incorporated. All rights reserved.
+
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
+    <!-- This is a wide open CSP declaration. To lock this down for production, see below. -->
+    <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline' gap:; style-src 'self' 'unsafe-inline'; media-src *" />
+    <!-- Good default declaration:
+    * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
+    * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+    * Disables use of eval() and inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+        * Enable inline JS: add 'unsafe-inline' to default-src
+        * Enable eval(): add 'unsafe-eval' to default-src
+    * Create your own at http://cspisawesome.com
+    -->
+    <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: 'unsafe-inline' https://ssl.gstatic.com; style-src 'self' 'unsafe-inline'; media-src *" /> -->
+
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="css/style.css"/>
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <title>S0</title>
+    <script>
+        function load(){
+            $('#preloader').delay(2000).fadeOut(); 
+            $('#page').delay(2000).show(2000);
+        }
+        function clicked(evt){
+
+            y=evt.offsetY;
+            x=evt.offsetX;
+            if((x>450&&x<470)&&(y>290&&y<320)){
+                //alert('pedernales');
+                $('#barra').show();
+                $('#barra-titulo').text("Pedernales");
+                $('#barra-imagen').attr("src","img/Pedernales/header.png");
+            }
+            if((x>490&&x<525)&&(y>450&&y<480)){
+                //alert('vinces');
+                $('#barra').show();
+                $('#barra-titulo').text("Vinces");
+                $('#barra-imagen').attr("src","img/Vinces/header.png");
+            }
+            if((x>400&&x<440)&&(y>380&&y<420)){
+                //alert('manta');
+                $('#barra').show();
+                $('#barra-titulo').text("Manta");
+                $('#barra-imagen').attr("src","img/Manta/header.png");
+            }
+            if((x>540&&x<560)&&(y>730&&y<750)){
+                //alert('loja');
+                $('#barra').show();
+                $('#barra-titulo').text("Loja");
+                $('#barra-imagen').attr("src","img/Loja/header.png");
+            }
+        }
+        function closeBarra(){
+           $('#barra').hide();
+        }
+    </script>    
+</head>
+<body onload="load();">
+        <div id="preloader">
+            <h2>Pantalla de Bienvenida</h2>
+        </div>
+        <div id="page" style="display:none">
+            <div id="barra" style="display: none">
+                <img id="barra-imagen" src="">
+                <h5 id="barra-titulo">Título</h5>
+                
+                <a id="barra-video" title="" href=""><img class="button-multimedia" src="img/video.png"/>Video</a><br>
+                <a id="barra-audio" title="" href=""><img class="button-multimedia" src="img/audio.png"/>Audio</a><br>
+                <a id="barra-fotos" title="" href=""><img class="button-multimedia" src="img/fotos.png"/>Fotos</a><br>
+                <a id="barra-vr" title="" href=""><img class="button-multimedia" src="img/vr.png"/>VR</a><br><br>
+
+                <button type="button" class="btn btn-success btn-lg btn-block" onclick="closeBarra()" style="margin-bottom: 0">Cerrar</button>
+            </div>
+            <div class="">
+                <img id="mapa" src="img/mapa-noche.jpg" onclick="clicked(event)">
+            </div>
+        </div>
+</body>
+
+</html>

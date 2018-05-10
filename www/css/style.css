@@ -1,0 +1,29 @@
+.button-multimedia{
+    width: 36px;
+    height: 36px;
+    margin-right: 4px;
+}
+#mapa{
+    width: 1000px;
+    height: 1000px;
+}
+#barra{
+    background: black;
+    color: white;
+    width: 40%;
+    height: 100%;
+    position: fixed;
+    z-index: 0;
+    margin-left: 60%;
+    padding: 3px;
+}
+#barra-titulo{
+    margin-bottom: 6px;
+
+}
+#barra-imagen{
+    width: 100%;
+    margin:1px;
+    margin-bottom: 10px;
+    margin-right: 30px;
+}
